@@ -5,6 +5,10 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField(max_length=2000)
+    img = models.ImageField(upload_to='article_images/',default='default_img.jpg')
+    pub_date = models.DateField(auto_now = True)
+
+
     
 
     def __str__(self):
