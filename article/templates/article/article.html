@@ -2,20 +2,12 @@
 
 {% block content %}
 
-        <div class="container">
-            <h2 class='m-4' style="width:80%">{{article.title}}</h2>
-            <h5 class='m-5'>Published on {{article.pub_date}}</h5>
-            <img class ='m-4' style="width:50%"src="{{article.img.url}}" alt="">
-            <p style = "width:80%">{{article.content}}</p>
+<div class="container">
+    <h2 class='mt-4' style="width:80%;">{{article.title}}</h2> 
+    <h5 class='m-2'>Published on {{ article.pub_date }}</h5>
+    <img class="my-4" style="width:60%" src="{{article.img.url}}" alt="">
+    <p style="width:80%;" >{{ article.content }}</p> 
 
+</div> 
 
-
-
-        </div>
-
-
-{% endblock content %}
-
-
-
-
+{% endblock content %} 
