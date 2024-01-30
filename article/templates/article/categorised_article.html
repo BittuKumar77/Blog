@@ -10,7 +10,7 @@
 
     <div class="">
             {% for article in articles %}
-                <a class="row text-decoration-none text-dark" href="{% url "article:single_article" article.id %}"> 
+                <a class="row text-decoration-none text-dark my-5" href="{% url "article:single_article" article.id %}"> 
                     <div class="image col-4">
                         <img style= "width:90%" src="{{article.img.url}}" alt="">
 
@@ -19,6 +19,8 @@
                         <h5> {{article.title}}</h5>
                         <h6>Published on {{article.pub_date}} </h6>
                         <p> {{article.content|truncatewords:100}}</p>
+                        {% comment %} <a href = "/article:single_article/{{article.id}}/"class="btn btn-danger m-2">Delete</a>
+                        <a href = "/article:single_article/{{article.id}}/"class="btn btn-success">Update</a> {% endcomment %}
                     </div>
                 </a>
             {% endfor %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 # Create your views here.
 
@@ -43,3 +43,8 @@ def categorised_article(request,pk):
         }
 
     return render(request,"article/categorised_article.html",context)
+
+def delete(request,id):
+    queryset = Article.objects.get(id=id)
+    queryset.delete()
+    return redirect('/receipes')
