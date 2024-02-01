@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .models import *
 # from .forms import ArticleForm
 from .forms import *
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -48,6 +50,7 @@ def categorised_article(request,pk):
 
     return render(request,"article/categorised_article.html",context)
 
+@login_required
 def create_article(request):
 
     form = ArticleForm()

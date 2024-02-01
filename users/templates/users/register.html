@@ -10,6 +10,10 @@
         {{form.as_p}}
         <button class="btn btn-success" type="submit">Submit</button>
     </form>
+    <div class='d-flex'>
+        <h6 class='mt-2 fw-semibold'>Don't have any account</h6>
+        <a class='mx-3 fs-5'href="{% url "users:login" %}">Login</a>
+    </div>
 
 </div>
 

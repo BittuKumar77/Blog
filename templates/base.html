@@ -25,6 +25,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url "article:create_article" %}">Post</a>  
               </li>
+              
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categories
@@ -39,10 +40,37 @@
                   <li><a class="dropdown-item" href="{% url "article:categorised_article" 0 %}">All</a></li>  
                 </ul>
               </li> 
+              {% if user.is_authenticated  %}
+
+              <li class="nav-item">
+                <li><a class="nav-link" href="{% url "users:profile" %}">Profile</a></li>  
+
+              </li>
+              
+              <li class="nav-item">
+                <form class="nav-link" action = "{% url "users:logout" %}" method="POST">
+                  {% csrf_token %}
+                  <button class= 'border-0' type="submit">Logout</button>
+                </form>
+              </li>
+
+              {% else %}
+
+              <li class="nav-item">
+                <form class="nav-link" action = "{% url "users:login" %}" method="POST">
+                  {% csrf_token %}
+                  <button class= 'border-0' type="submit">Login</button>
+                </form>
+              </li>
+              
+              {% endif %}
+              
+
+              
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit" href={% url "users:register" %}>Login</button>
+              <button class="btn btn-outline-success" type="submit" href="">Search</button>
             </form>
           </div>
         </div>

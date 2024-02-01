@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="username">
+                <div class="form-label mx-2 fw-bold">
+                    {{form.username.label}}
+                </div>
+                <div class="form-control border-0">
+                    {{form.username}}
+                </div>
+           
+        </div>
+        <div class="password">
+            <div class="form-label mx-2 fw-bold">
+                {{form.password.label}}
+            </div>
+            <div class="form-control border-0">
+                {{form.password}}
+            </div>
+       
+    </div>
+       
+        <button class="btn btn-success" type="submit">Login</button>
+
+        </form>
+            <div class='d-flex'>
+            <h6 class='mt-2 fw-semibold'>Don't have any account</h6>
+            <a class='mx-3 fs-5'href="{% url "users:register" %}">register</a>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
