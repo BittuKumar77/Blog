@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect
 from .models import *
+# from .forms import ArticleForm
+from .forms import *
+
+
 # Create your views here.
 
 # context processor
@@ -44,7 +48,23 @@ def categorised_article(request,pk):
 
     return render(request,"article/categorised_article.html",context)
 
-def delete(request,id):
-    queryset = Article.objects.get(id=id)
-    queryset.delete()
-    return redirect('/receipes')
+def create_article(request):
+
+    form = ArticleForm()
+
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES) 
+        if form.is_valid():
+            form.save()
+            return redirect('article:index')
+
+    context = {
+        "form" : form,
+    }
+
+    return render(request, 'article/article_form.html', context) 
+
+# def delete(request,id):
+#     queryset = Article.objects.get(id=id)
+#     queryset.delete()
+#     return redirect('/categorised_article')
